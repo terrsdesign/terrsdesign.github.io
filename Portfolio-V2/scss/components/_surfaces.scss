@@ -1,0 +1,9 @@
+.surface-card {
+  border: 1px solid var(--surface-card-border);
+  border-radius: var(--radius-base);
+  background: var(--surface-card-background);
+  box-shadow: var(--surface-card-shadow);
+  -webkit-backdrop-filter: blur(var(--surface-card-blur));
+  backdrop-filter: blur(var(--surface-card-blur));
+}
+

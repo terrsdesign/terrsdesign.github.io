@@ -1,0 +1,383 @@
+.chocolate-page {
+  background: var(--color-page-background);
+}
+
+.chocolate-project__top-stage {
+  --chocolate-top-art-width: 436px;
+  --chocolate-top-art-rendered-width: 349px;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: 180px;
+  margin-top: -36px;
+}
+
+.chocolate-project__top-path {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: calc(100% - var(--chocolate-top-art-rendered-width) + 8px);
+  height: 100%;
+  overflow: visible;
+  opacity: 1;
+  pointer-events: none;
+
+  path {
+    fill: none;
+    stroke: url("#chocolate-top-line-gradient");
+    stroke-width: 1;
+    stroke-linecap: round;
+    vector-effect: non-scaling-stroke;
+  }
+}
+
+.chocolate-project__top-path-stop--background {
+  stop-color: var(--color-page-background);
+}
+
+.chocolate-project__top-path-stop--ink {
+  stop-color: var(--color-body-text);
+}
+
+.chocolate-project__top-art {
+  position: absolute;
+  z-index: 1;
+  top: 40px;
+  right: -7px;
+  width: var(--chocolate-top-art-width);
+  height: 80%;
+  background-image: url("../assets/images/projects/chocolate-for-family-flourish.svg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: auto 100%;
+  opacity: 1;
+}
+
+.chocolate-project {
+  position: relative;
+  overflow: visible;
+  padding-block: 30px 128px;
+}
+
+.chocolate-project__backdrop {
+  position: absolute;
+  z-index: 3;
+  top: 110px;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100%;
+  margin: 0;
+  color: rgba(204, 227, 237, 0.25);
+  font-family: var(--font-family-display);
+  font-size: 12vw;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.chocolate-start-callout {
+  position: absolute;
+  z-index: 4;
+  top: -64px;
+  left: max(32px, calc(50% - 268px));
+  width: 200px;
+  height: 154px;
+  pointer-events: none;
+  transform: rotate(-18deg);
+}
+
+.chocolate-start-callout img {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 40px;
+  width: 138px;
+  height: 154px;
+}
+
+.chocolate-start-callout p {
+  position: absolute;
+  z-index: 1;
+  top: 76px;
+  left: 15px;
+  margin: 0;
+  color: var(--color-body-text);
+  font-family: var(--font-family-accent);
+  font-size: 32px;
+  line-height: 20px;
+  white-space: nowrap;
+  transform: rotate(-45deg);
+  transform-origin: center;
+  animation: ecodream-start-pulse 4s linear infinite;
+}
+
+html.motion-paused .chocolate-start-callout p {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chocolate-start-callout p {
+    animation: none;
+  }
+}
+
+.chocolate-project__layout {
+  position: relative;
+  z-index: 1;
+  width: min(calc(100% - 160px), 1100px);
+  display: grid;
+  grid-template-columns: 400px minmax(0, 1fr);
+  align-items: start;
+  margin-top: 60px;
+}
+
+.chocolate-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 24px;
+  text-align: center;
+}
+
+.chocolate-summary__header h1 {
+  margin: 0;
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-heading);
+}
+
+.chocolate-summary__header span {
+  display: block;
+  margin-top: 0;
+  color: var(--color-accent-text);
+  font-size: var(--font-size-h5);
+  font-weight: 500;
+}
+
+.chocolate-summary__mockup {
+  display: block;
+  width: 100%;
+  height: 216px;
+  object-fit: contain;
+}
+
+.chocolate-overview {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  padding: 16px 0 24px 40px;
+}
+
+.chocolate-process {
+  margin-top: 96px;
+}
+
+.chocolate-process__header {
+  width: min(calc(100% - 160px), 1100px);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.chocolate-process__header h2,
+.chocolate-process__header p {
+  margin: 0;
+}
+
+.chocolate-process__header h2 {
+  color: var(--color-body-text);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-h4);
+  font-weight: 500;
+  line-height: var(--line-height-heading);
+  padding-bottom: 2px;
+}
+
+.chocolate-process__header p {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-small);
+}
+
+.chocolate-process__track {
+  position: relative;
+  height: 136px;
+  margin-top: 32px;
+}
+
+.chocolate-project__full-screen {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 79px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  overflow: visible;
+}
+
+.chocolate-project__full-screen-group {
+  display: block;
+  flex: 0 0 300px;
+  width: 300px;
+  height: 79px;
+  object-fit: fill;
+}
+
+.chocolate-project__full-screen-path {
+  display: block;
+  flex: 1 1 auto;
+  width: auto;
+  height: 79px;
+  margin-left: -4px;
+  min-width: 0;
+  margin-top:-9px;
+
+  path {
+    fill: none;
+    stroke: var(--color-body-text);
+    stroke-width: 1;
+    stroke-linecap: round;
+    vector-effect: non-scaling-stroke;
+  }
+}
+
+.chocolate-process__timeline {
+  position: absolute;
+  z-index: 2;
+  top: 25px;
+  left: 51%;
+  width: min(calc(100% - 160px), 1050px);
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transform: translateX(calc(-50% + 64px));
+}
+
+.chocolate-process__timeline li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-body);
+  text-align: center;
+}
+
+.chocolate-process__timeline strong {
+  margin-top: 8px;
+  color: var(--color-body-text);
+  font-size: var(--font-size-body);
+  font-weight: 500;
+}
+
+.chocolate-process__dot {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--color-muted);
+  border-radius: 50%;
+  background: var(--color-page-background);
+  box-shadow: 0 0 0 4px var(--color-page-background);
+}
+
+.chocolate-process__timeline .is-complete .chocolate-process__dot,
+.chocolate-process__timeline .is-current .chocolate-process__dot {
+  border-color: var(--color-accent-red);
+  background: var(--color-accent-red);
+}
+
+.chocolate-process__timeline .is-current .chocolate-process__dot {
+  animation: chocolate-process-current 1.6s ease-in-out infinite;
+}
+
+@keyframes chocolate-process-current {
+  0%, 100% {
+    box-shadow: 0 0 0 4px var(--color-page-background), 0 0 0 4px var(--color-accent-red);
+  }
+
+  50% {
+    box-shadow: 0 0 0 4px var(--color-page-background), 0 0 0 10px transparent;
+  }
+}
+
+.chocolate-process__columns {
+  width: min(calc(100% - 160px), 1100px);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 64px;
+  margin-top: 48px;
+}
+
+.chocolate-process__columns > section + section {
+  padding-left: 64px;
+  border-left: 1px solid var(--color-border);
+}
+
+.chocolate-process__columns h3 {
+  margin: 0 0 24px;
+  color: var(--color-body-text);
+  font-size: var(--font-size-h5);
+  line-height: var(--line-height-heading);
+}
+
+.chocolate-process__list {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chocolate-process__list li {
+  position: relative;
+  padding-left: 32px;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+}
+
+.chocolate-process__list li::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--color-muted);
+  border-radius: 50%;
+  color: var(--color-accent-text);
+  font-size: var(--font-size-caption);
+  line-height: 1;
+  content: "";
+}
+
+.chocolate-process__list--done li::before {
+  border-color: var(--color-accent-red);
+  content: "✓";
+}
+
+html.motion-paused .chocolate-process__timeline .is-current .chocolate-process__dot {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chocolate-process__timeline .is-current .chocolate-process__dot {
+    animation: none;
+  }
+}
+
+.chocolate-summary .project-metadata {
+  margin-top: 0;
+  padding-bottom: 0;
+}
+
+.chocolate-summary .project-metadata div {
+  padding-block: 8px;
+}

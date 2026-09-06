@@ -1,0 +1,44 @@
+@use "../abstracts/breakpoints" as bp;
+
+.design-system {
+  padding-block: clamp(64px, 8vw, 120px);
+}
+
+.design-system__header {
+  max-width: 760px;
+
+  > p:last-child {
+    color: var(--color-muted);
+    font-size: 1.125rem;
+  }
+}
+
+.design-system__section {
+  margin-top: 80px;
+  padding-top: 40px;
+  border-top: 1px solid var(--color-border);
+
+}
+
+.component-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.component-example {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+
+  h3 {
+    flex-basis: 100%;
+    margin: 0;
+  }
+}
+
+@include bp.mobile {
+  .component-grid { grid-template-columns: 1fr; }
+}

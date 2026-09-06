@@ -1,0 +1,66 @@
+:root {
+  // Foundation palette
+  --color-white: #ffffff;
+  --color-body-text: #1a1a1a;
+  --color-accent-red: #df3416;
+  --color-accent-text: #cc2f13;
+  --color-page-background: #ecf3f6;
+
+  // Semantic aliases
+  --color-surface: var(--color-white);
+  --color-text: var(--color-body-text);
+  --color-text-secondary: #4f565a;
+  --color-accent: var(--color-accent-red);
+  --color-background: var(--color-page-background);
+  --color-muted: color-mix(in srgb, var(--color-body-text) 65%, var(--color-white));
+  --color-border: color-mix(in srgb, var(--color-body-text) 15%, transparent);
+
+  // Button interaction states from Figma node 664:217
+  --color-action-hover: #c3280f;
+  --color-action-pressed: #aa1e0a;
+  --color-action-active: #961405;
+  --color-action-soft-hover: #fdf0ee;
+  --color-action-soft-pressed: #f8e1dc;
+  --color-disabled-background: #dcdcdc;
+  --color-disabled-text: #a0a0a0;
+  --color-form-border: #e5e7eb;
+  --color-form-placeholder: #9ca3af;
+  --color-contact-link: #3c6482;
+  --color-contact-icon: #505050;
+
+  // Typography
+  --font-family-body: "Satoshi", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-family-display: "CRONDE", Georgia, "Times New Roman", serif;
+  --font-family-accent: "Supreme Spring", "Brush Script MT", cursive;
+  --font-family-primary: var(--font-family-body);
+
+  // Desktop type scale from Figma node 454:71
+  --font-size-display: 5rem;
+  --font-size-h1: 3.5rem;
+  --font-size-h2: 2.5rem;
+  --font-size-h3: 2rem;
+  --font-size-h4: 1.5rem;
+  --font-size-h5: 1.25rem;
+  --font-size-body: 1rem;
+  --font-size-small: 0.875rem;
+  --font-size-caption: 0.75rem;
+  --line-height-display: 1;
+  --line-height-heading: 1;
+  --line-height-body: normal;
+
+  // Shape and controls
+  --radius-base: 16px;
+  --surface-card-border: rgba(255, 255, 255, 0.5);
+  --surface-card-background: rgba(255, 255, 255, 0.5);
+  --surface-card-shadow: 0 4px 8px -6px rgba(0, 0, 0, 0.07);
+  --surface-card-blur: 9px;
+  --button-height: 40px;
+  --button-padding-inline: 28px;
+  --button-border-width: 1.5px;
+
+  // Layout
+  --page-max-width: 1280px;
+  --grid-columns: 12;
+  --grid-margin: 80px;
+  --grid-gutter: 20px;
+}

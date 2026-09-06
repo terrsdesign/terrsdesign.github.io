@@ -1,0 +1,108 @@
+.button {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--button-height);
+  padding: 0 var(--button-padding-inline);
+  border: 0;
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-small);
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
+
+  &:focus-visible {
+    outline-color: var(--color-text);
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    color: var(--color-disabled-text);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.button--primary {
+  color: var(--color-white);
+  background: var(--color-accent);
+
+  &:hover,
+  &.is-hovered { background: var(--color-action-hover); }
+
+  &:active,
+  &.is-pressed { background: var(--color-action-pressed); }
+
+  &.is-active,
+  &[aria-pressed="true"] {
+    background: var(--color-action-active);
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    background: var(--color-disabled-background);
+  }
+}
+
+.button--secondary {
+  color: var(--color-accent-text);
+  background: transparent;
+  border: var(--button-border-width) solid var(--color-accent);
+
+  &:hover,
+  &.is-hovered { background: var(--color-action-soft-hover); }
+
+  &:active,
+  &.is-pressed {
+    color: var(--color-action-pressed);
+    background: var(--color-action-soft-pressed);
+    border-color: var(--color-action-pressed);
+  }
+
+  &.is-active,
+  &[aria-pressed="true"] {
+    color: var(--color-action-active);
+    background: var(--color-action-soft-pressed);
+    border-color: var(--color-action-active);
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    background: transparent;
+    border-color: var(--color-disabled-background);
+  }
+}
+
+.button--ghost {
+  color: var(--color-accent-text);
+  background: transparent;
+
+  &:hover,
+  &.is-hovered { background: var(--color-action-soft-hover); }
+
+  &:active,
+  &.is-pressed {
+    color: var(--color-action-pressed);
+    background: var(--color-action-soft-pressed);
+  }
+
+  &.is-active,
+  &[aria-pressed="true"] {
+    color: var(--color-action-active);
+    background: transparent;
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    background: transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button { transition: none; }
+}

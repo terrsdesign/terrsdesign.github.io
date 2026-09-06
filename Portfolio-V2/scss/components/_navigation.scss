@@ -1,0 +1,75 @@
+.site-logo {
+  justify-self: start;
+  font-family: var(--font-family-display);
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.primary-navigation {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav-pill {
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  padding-inline: 24px;
+  font-size: var(--font-size-body);
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  opacity: 0.9;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    opacity 160ms ease,
+    transform 160ms ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.72);
+    border-color: rgba(255, 255, 255, 0.85);
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    background: var(--color-action-soft-hover);
+    transform: scale(0.98);
+  }
+
+  &:focus-visible {
+    outline-color: var(--color-accent);
+  }
+
+  &.is-active,
+  &[aria-current] {
+    color: var(--color-action-active);
+    background: var(--color-action-soft-pressed);
+    border-color: var(--color-accent);
+    font-weight: 700;
+    opacity: 1;
+  }
+}
+
+.header-cta {
+  justify-self: end;
+  height: var(--button-height);
+  box-shadow: var(--surface-card-shadow);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-pill {
+    transition: none;
+
+    &:hover,
+    &:active {
+      transform: none;
+    }
+  }
+}

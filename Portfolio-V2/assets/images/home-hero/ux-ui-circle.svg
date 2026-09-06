@@ -1,0 +1,21 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="226.727" height="81.2332" viewBox="0 0 226.727 81.2332" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+  #ux-ui-circle-path {
+    stroke-dasharray: 1 1;
+    stroke-dashoffset: 1;
+    animation: draw-circle 1.2s ease 3.2s forwards;
+  }
+
+  @keyframes draw-circle {
+    to { stroke-dashoffset: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #ux-ui-circle-path {
+      animation: none;
+      stroke-dashoffset: 0;
+    }
+  }
+</style>
+<path id="ux-ui-circle-path" d="M11.1896 39.6009C11.1896 61.8153 56.7183 79.9832 116.761 79.9832C176.803 79.9832 225.477 61.9749 225.477 39.7605C225.477 17.5461 178.465 1.25 118.423 1.25C58.3803 1.25 1.44068 17.8809 1.44068 40.0953C0.335637 47.3844 3.50267 64.6141 25.0111 75.2196" pathLength="1" stroke="#EB503B" stroke-width="2.5"/>
+</svg>
