@@ -44,6 +44,17 @@
     <div class="page-shell header-inner">
       <a class="site-logo" href="#top" aria-label="Mariateresa Busco — Home">MB</a>
 
+      <button
+        class="navigation-toggle surface-card"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+        aria-label="Open navigation menu"
+      >
+        <span></span>
+        <span></span>
+      </button>
+
       <nav id="primary-navigation" class="primary-navigation" aria-label="Primary navigation">
         <a class="nav-pill surface-card" href="#top" data-nav-section="top">Home</a>
         <a class="nav-pill surface-card" href="#work" data-nav-section="work">Projects</a>
@@ -96,14 +107,16 @@
       </div>
 
       <div class="home-hero__flora" aria-hidden="true">
-        <img class="home-hero__poppies-field" src="./assets/images/home-hero/poppies-field.png" alt="">
+        <div class="home-hero__poppy-stage">
+          <img class="home-hero__poppies-field" src="./assets/images/home-hero/poppies-field.png" alt="">
 
-        <div class="home-hero__moving-poppies">
-          <img class="home-hero__poppy home-hero__poppy--left" src="./assets/images/home-hero/poppy-left.png" alt="">
-          <img class="home-hero__poppy home-hero__poppy--left-small" src="./assets/images/home-hero/poppy-left-small.png" alt="">
-          <img class="home-hero__poppy home-hero__poppy--center" src="./assets/images/home-hero/poppy-center.png" alt="">
-          <img class="home-hero__poppy home-hero__poppy--right" src="./assets/images/home-hero/poppy-right.png" alt="">
-          <img class="home-hero__poppy home-hero__poppy--far-right" src="./assets/images/home-hero/poppy-far-right.png" alt="">
+          <div class="home-hero__moving-poppies">
+            <img class="home-hero__poppy home-hero__poppy--left" src="./assets/images/home-hero/poppy-left.png" alt="">
+            <img class="home-hero__poppy home-hero__poppy--left-small" src="./assets/images/home-hero/poppy-left-small.png" alt="">
+            <img class="home-hero__poppy home-hero__poppy--center" src="./assets/images/home-hero/poppy-center.png" alt="">
+            <img class="home-hero__poppy home-hero__poppy--right" src="./assets/images/home-hero/poppy-right.png" alt="">
+            <img class="home-hero__poppy home-hero__poppy--far-right" src="./assets/images/home-hero/poppy-far-right.png" alt="">
+          </div>
         </div>
 
         <img class="home-hero__edge" src="./assets/images/home-hero/horizon-edge.svg" alt="">
@@ -321,6 +334,12 @@ I refine interactions, layouts and visual details based on feedback, testing and
 Then I obsess over spacing, alignment and tiny details nobody specifically asked me to care about, until the whole thing feels intentional rather than merely finished.</span>
             </button>
           </div>
+
+          <div class="process-carousel__mobile-controls" aria-label="How I work carousel controls">
+            <button class="process-carousel__mobile-arrow surface-card" type="button" data-process-previous aria-label="Previous step">←</button>
+            <span class="process-carousel__mobile-counter" data-process-counter aria-live="polite">1 / 5</span>
+            <button class="process-carousel__mobile-arrow surface-card" type="button" data-process-next aria-label="Next step">→</button>
+          </div>
         </div>
       </div>
     </section>
@@ -375,17 +394,17 @@ Then I obsess over spacing, alignment and tiny details nobody specifically asked
             </button>
           </div>
 
+          <div class="about-section__pick" aria-hidden="true">
+            <img src="./assets/images/about/pick-arrow.svg" alt="">
+            <p class="font-accent">pick one</p>
+          </div>
+
           <p id="about-copy" class="about-section__copy" data-about-copy aria-live="polite">
             <strong>Hi, I’m Terrs. I design things, make things, and constantly find new things I want to learn, because apparently choosing one creative skill and sticking to it was never an option.</strong><br><br>
 
 I design digital experiences, but creativity for me doesn’t really stop when I close Figma. <br>I draw, craft, experiment, make things by hand, and regularly convince myself that learning one more skill is a perfectly reasonable use of my time and money.
 <br> 
 I like details, colors, unusual ideas, and figuring out how things work. <br><br>Whether I’m designing an interface or making something completely unnecessary with my hands, the process is pretty much the same: get curious, try something, make a mess, refine it. </p>
-        </div>
-
-        <div class="about-section__pick" aria-hidden="true">
-          <img src="./assets/images/about/pick-arrow.svg" alt="">
-          <p class="font-accent">pick one</p>
         </div>
       </div>
     </section>

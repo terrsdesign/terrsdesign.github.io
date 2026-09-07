@@ -1,4 +1,44 @@
 (() => {
+  const navigationToggle = document.querySelector(".navigation-toggle");
+  const primaryNavigation = document.querySelector("#primary-navigation");
+
+  if (navigationToggle && primaryNavigation) {
+    const setNavigationState = (isOpen) => {
+      navigationToggle.setAttribute("aria-expanded", String(isOpen));
+      navigationToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+      primaryNavigation.classList.toggle("is-open", isOpen);
+    };
+
+    navigationToggle.addEventListener("click", () => {
+      setNavigationState(navigationToggle.getAttribute("aria-expanded") !== "true");
+    });
+
+    primaryNavigation.addEventListener("click", (event) => {
+      if (event.target.closest("a")) setNavigationState(false);
+    });
+
+    document.addEventListener("click", (event) => {
+      if (
+        navigationToggle.getAttribute("aria-expanded") === "true"
+        && !primaryNavigation.contains(event.target)
+        && !navigationToggle.contains(event.target)
+      ) {
+        setNavigationState(false);
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && navigationToggle.getAttribute("aria-expanded") === "true") {
+        setNavigationState(false);
+        navigationToggle.focus();
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) setNavigationState(false);
+    });
+  }
+
   document.querySelectorAll("[data-current-year]").forEach((year) => {
     year.textContent = String(new Date().getFullYear());
   });
@@ -132,9 +172,14 @@
     const processCardsContainer = processCarousel.querySelector("[data-process-cards]");
     const processOpenButtons = [...processCarousel.querySelectorAll("[data-process-open]")];
     const processCards = [...processCarousel.querySelectorAll("[data-process-card]")];
+    const processPreviousButton = processCarousel.querySelector("[data-process-previous]");
+    const processNextButton = processCarousel.querySelector("[data-process-next]");
+    const processCounter = processCarousel.querySelector("[data-process-counter]");
     let activeProcessIndex = 0;
     let processIsOpen = false;
     let lastProcessTrigger = null;
+    let processTouchStartX = null;
+    let ignoreNextProcessCardClick = false;
 
     const getCardPosition = (index) => {
       const offset = (index - activeProcessIndex + processCards.length) % processCards.length;
@@ -162,6 +207,16 @@
           card.removeAttribute("aria-current");
         }
       });
+
+      if (processCounter) {
+        processCounter.textContent = `${activeProcessIndex + 1} / ${processCards.length}`;
+      }
+    };
+
+    const moveProcessCarousel = (direction, shouldFocus = true) => {
+      activeProcessIndex = (activeProcessIndex + direction + processCards.length) % processCards.length;
+      updateProcessCards();
+      if (shouldFocus) processCards[activeProcessIndex].focus({ preventScroll: true });
     };
 
     const openProcessCarousel = (index, trigger) => {
@@ -193,7 +248,13 @@
     });
 
     processCards.forEach((card) => {
-      card.addEventListener("click", () => {
+      card.addEventListener("click", (event) => {
+        if (ignoreNextProcessCardClick) {
+          event.preventDefault();
+          ignoreNextProcessCardClick = false;
+          return;
+        }
+
         const selectedIndex = Number(card.dataset.processCard);
 
         if (selectedIndex === activeProcessIndex) {
@@ -211,11 +272,32 @@
 
         event.preventDefault();
         const direction = event.key === "ArrowRight" ? 1 : -1;
-        activeProcessIndex = (activeProcessIndex + direction + processCards.length) % processCards.length;
-        updateProcessCards();
-        processCards[activeProcessIndex].focus({ preventScroll: true });
+        moveProcessCarousel(direction);
       });
     });
+
+    processPreviousButton?.addEventListener("click", () => moveProcessCarousel(-1));
+    processNextButton?.addEventListener("click", () => moveProcessCarousel(1));
+
+    processCardsContainer.addEventListener("touchstart", (event) => {
+      processTouchStartX = event.touches[0]?.clientX ?? null;
+    }, { passive: true });
+
+    processCardsContainer.addEventListener("touchend", (event) => {
+      if (processTouchStartX === null) return;
+
+      const touchEndX = event.changedTouches[0]?.clientX ?? processTouchStartX;
+      const distance = touchEndX - processTouchStartX;
+      processTouchStartX = null;
+
+      if (Math.abs(distance) < 48) return;
+
+      ignoreNextProcessCardClick = true;
+      moveProcessCarousel(distance < 0 ? 1 : -1, false);
+      window.setTimeout(() => {
+        ignoreNextProcessCardClick = false;
+      }, 400);
+    }, { passive: true });
 
     document.addEventListener("click", (event) => {
       if (processIsOpen && !processCarousel.contains(event.target)) {

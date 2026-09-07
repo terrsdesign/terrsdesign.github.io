@@ -51,6 +51,17 @@
       </nav>
 
       <a class="button button--primary header-cta" href="#main-content" aria-current="page">Contact me</a>
+
+      <button
+        class="navigation-toggle surface-card"
+        type="button"
+        aria-label="Open navigation"
+        aria-controls="primary-navigation"
+        aria-expanded="false"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
     </div>
   </header>
 
@@ -79,7 +90,7 @@
 
         <div class="contact-start-callout" aria-hidden="true">
           <p>start here!</p>
-          <span class="contact-start-callout__arrow">
+          <span class="contact-start-callout__arrow" data-contact-draw-arrow>
             <img src="./assets/images/contact/contact-start-arrow.svg" alt="">
           </span>
         </div>
@@ -266,5 +277,6 @@
     });
   </script>
   <script src="./js/main.js" defer></script>
+  <script src="./js/contact-arrow.js" defer></script>
 </body>
 </html>

@@ -69,7 +69,7 @@
 .contact-start-callout {
   position: absolute;
   top: 120px;
-  left: calc(50% - 338px);
+  left: calc(50% - 438px);
   width: 288px;
   height: 216px;
   pointer-events: none;
@@ -77,8 +77,8 @@
 
 .contact-start-callout p {
   position: absolute;
-  top: 0;
-  left: 12px;
+  top: 25px;
+  left: 0;
   z-index: 2;
   margin: 0;
   font-family: var(--font-family-accent);
@@ -96,27 +96,41 @@
   height: 299px;
   display: grid;
   place-items: center;
-  overflow: hidden;
-  opacity: 0;
-  clip-path: inset(0 0 100% 0);
-  animation: contact-arrow-draw 20s linear infinite;
+  overflow: visible;
+  opacity: 1;
+  clip-path: none;
 }
 
-.contact-start-callout__arrow img {
+.contact-start-callout__arrow img,
+.contact-start-callout__arrow .contact-start-arrow__svg {
   width: 268px;
   height: 139px;
   max-width: none;
+  overflow: visible;
   transform: rotate(54.7deg) scaleY(-1);
+}
+
+.contact-start-arrow__guide {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.contact-start-callout__arrow.is-drawn .contact-start-arrow__guide {
+  animation: contact-start-arrow-stroke var(--contact-arrow-duration) linear var(--contact-arrow-delay) forwards;
+}
+
+@keyframes contact-start-arrow-stroke {
+  to { stroke-dashoffset: 0; }
 }
 
 .contact-floral {
   position: absolute;
-  top: 224px;
+  top: 205px;
   left: calc(50% + 120px);
   z-index: 2;
   width: 207px;
   height: 756px;
-  overflow: hidden;
+  overflow: visible;
   pointer-events: none;
 }
 
@@ -127,6 +141,7 @@
   width: 243.48%;
   height: 100%;
   max-width: none;
+  clip-path: inset(0 0 0 58%);
 }
 
 .contact-floral__moving-flower {
@@ -248,7 +263,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin: 0;
+  margin-top: 40px;
   padding: 0;
   list-style: none;
 }
@@ -289,8 +304,8 @@
 
 .contact-info-callout {
   position: absolute;
-  top: -144px;
-  left: 216px;
+  top: -94px;
+  left: 306px;
   width: 234px;
   height: 166px;
   pointer-events: none;
@@ -332,20 +347,6 @@
   0%, 7.5% { opacity: 0; }
   7.5% { animation-timing-function: ease; }
   11%, 100% { opacity: 1; }
-}
-
-@keyframes contact-arrow-draw {
-  0%, 12.5% {
-    opacity: 0;
-    clip-path: inset(0 0 100% 0);
-  }
-
-  12.5% { animation-timing-function: ease; }
-
-  16%, 100% {
-    opacity: 1;
-    clip-path: inset(0);
-  }
 }
 
 @keyframes contact-circle-draw {
@@ -416,6 +417,11 @@ html.motion-paused .contact-info-callout img {
   clip-path: inset(0);
 }
 
+html.motion-paused .contact-start-arrow__guide {
+  animation: none;
+  stroke-dashoffset: 0;
+}
+
 html.motion-paused .contact-hero__circled-word path {
   visibility: visible;
   stroke-dasharray: 1 1;
@@ -435,6 +441,11 @@ html.motion-paused .contact-hero__circled-word path {
   .contact-start-callout__arrow,
   .contact-info-callout img {
     clip-path: inset(0);
+  }
+
+  .contact-start-arrow__guide {
+    animation: none;
+    stroke-dashoffset: 0;
   }
 
   .contact-hero__circled-word path {
