@@ -37,9 +37,11 @@
 }
 
 .projects-showcase {
+  width: 100%;
+  min-width: 0;
   height: 656px;
   display: grid;
-  grid-template-columns: 306px 974px;
+  grid-template-columns: 306px minmax(0, 1fr);
   align-items: center;
   transition: height 320ms cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -108,7 +110,8 @@
 
 .projects-panels,
 .projects-panel {
-  width: 974px;
+  width: 100%;
+  min-width: 0;
   height: 525px;
 }
 
