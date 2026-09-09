@@ -3562,15 +3562,6 @@ html.motion-paused .case-disclosure-chevron {
   outline-offset: 4px;
 }
 
-.ecodream-page .motion-toggle,
-.ecodream-page .back-to-top {
-  bottom: calc(var(--case-progress-height) + 32px);
-}
-
-.ecodream-page .site-footer {
-  padding-bottom: calc(var(--case-progress-height) + 16px);
-}
-
 .ecodream-page #overview,
 .ecodream-page #research,
 .ecodream-page #design,
@@ -3604,10 +3595,6 @@ html.motion-paused .case-disclosure-chevron {
     height: 16px;
   }
 
-  .ecodream-page .motion-toggle,
-  .ecodream-page .back-to-top {
-    bottom: calc(var(--case-progress-height) + 32px);
-  }
 }
 
 @media (max-width: 374px) {
