@@ -384,3 +384,53 @@ html.motion-paused .chocolate-process__timeline .is-current .chocolate-process__
 .chocolate-summary .project-metadata div {
   padding-block: 8px;
 }
+
+.chocolate-research {
+  width: min(calc(100% - 160px), 1100px);
+  margin-top: 128px;
+}
+
+.chocolate-research__header {
+  margin-bottom: 96px;
+}
+
+.chocolate-research__header h2 {
+  margin: 0;
+  color: var(--color-body-text);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-h3);
+  font-weight: 700;
+  line-height: var(--line-height-heading);
+}
+
+.chocolate-research__steps {
+  display: grid;
+  gap: 96px;
+}
+
+.chocolate-research__step {
+  display: grid;
+  gap: 16px;
+}
+
+.chocolate-research__heading {
+  border-bottom: 1px solid color-mix(in srgb, var(--color-page-background) 40%, white 60%);
+}
+
+.chocolate-research__heading h3 {
+  display: inline-block;
+  margin: 0;
+  padding-bottom: 2px;
+  color: var(--color-body-text);
+  font-size: var(--font-size-h4);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.chocolate-research__step > p {
+  max-width: 900px;
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+}
