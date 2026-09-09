@@ -36,6 +36,58 @@ final result: passed
 
 ---
 
+# EcoDream fixed case-study progress — 2026-09-09
+
+Scope: add the selected fixed bottom case-study navigation to EcoDream only, across desktop, tablet and mobile. Other project pages remain unchanged.
+
+Source visual truth: C:/Users/terrs/.codex/generated_images/01a04914-3449-7303-9031-ec3c4a00802e/exec-b791fcb2-f609-4df2-97b7-345f53ad3405.png
+
+Implementation: http://localhost:5500/Progetti/Ecodream.html
+
+Mobile screenshot: C:/Users/terrs/Documents/Codex/2026-08-28/referenced-chatgpt-conversation-this-is-an/output/ecodream-progress-mobile.png
+
+Desktop screenshot: C:/Users/terrs/Documents/Codex/2026-08-28/referenced-chatgpt-conversation-this-is-an/output/ecodream-progress-desktop.png
+
+Combined mobile comparison: C:/Users/terrs/Documents/Codex/2026-08-28/referenced-chatgpt-conversation-this-is-an/output/ecodream-progress-mobile-comparison.png
+
+Viewports and normalization: source image 853 x 1844 px, normalized to 390px width; mobile implementation 390 x 844 CSS px and output pixels at deviceScaleFactor 1; desktop implementation 1440 x 1024 CSS px and output pixels at deviceScaleFactor 1. The comparison uses the same 390px mobile content width. The source shows a broader page composition, while the implementation was captured at the matching Research navigation state.
+
+State: Research selected on mobile; Design selected on desktop. Overview is marked complete, the current stage is emphasized, future stages remain outlined, and the line fill reaches the current milestone while continuing smoothly within each section.
+
+## Full-view comparison evidence
+
+- The fixed navigation retains the selected translucent white surface, 16px radius, subtle border, blur and soft shadow.
+- The component remains 16px from the viewport edges on mobile and is centered at a controlled width on desktop.
+- Five milestones, labels and the orange/gray progress hierarchy match the selected direction without introducing a dashboard treatment.
+- The existing EcoDream content, typography, imagery, spacing system and page structure remain unchanged.
+
+## Focused region comparison evidence
+
+The progress component was inspected at native 390px mobile size and in the 1440px desktop screenshot. No additional crop was required because markers, labels, line fill, current state and surrounding fixed controls are all legible at those sizes.
+
+## Comparison history
+
+- Initial P2: mobile labels and markers were smaller than the selected mockup and did not use the existing caption token.
+- Fix: mobile labels now use `--font-size-caption` and markers retain the 16px size used on desktop.
+- Initial P2: a document-wide linear calculation could place the fill before its current milestone when sections have different heights.
+- Fix: progress is now calculated segment by segment between section anchors, keeping each active stage aligned with its milestone while preserving continuous movement.
+- Post-fix evidence: the combined mobile comparison shows Research active with the line reaching its marker; the desktop screenshot shows Design active with Overview and Research complete.
+
+## Fidelity surfaces
+
+- Typography: existing Satoshi and site type tokens retained; labels use the caption/small scale with a stronger current state.
+- Spacing and layout: 16px viewport offset, 16px radius, grid-aligned five-stage distribution, and fixed controls moved above the new bar to avoid collision.
+- Colors and tokens: existing accent, accent-text, secondary-text, white and surface variables retained; no new brand colors introduced.
+- Image quality and assets: no project imagery or decorative assets were replaced or transformed.
+- Copy and content: existing case-study copy is unchanged; only the five requested navigation labels were added.
+- Interaction and accessibility: all five anchors work with smooth scrolling, reduced-motion is respected, `aria-current="step"` updates with scroll, focus states are visible, and the browser console contains no warnings or errors.
+
+No actionable P0/P1/P2 findings remain. Tablet behavior inherits the same fluid component between the verified desktop and mobile layouts.
+
+final result: passed
+
+---
+
 # Homepage UX project pair — 2026-09-06
 
 Scope: add Chocolate for Family beside the existing EcoDream project in the UX tab. EcoDream's preview asset and project copy remain unchanged.

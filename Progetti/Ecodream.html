@@ -870,7 +870,7 @@
       </div>
     </section>
 
-    <section class="design-process" aria-labelledby="design-process-title">
+    <section class="design-process" id="design" aria-labelledby="design-process-title">
       <div class="page-shell">
         <header class="design-process__header">
           <h2 id="design-process-title">05. Design Process</h2>
@@ -1163,7 +1163,7 @@
       </div>
     </section>
 
-    <section class="prototype-testing" aria-labelledby="prototype-testing-title">
+    <section class="prototype-testing" id="testing" aria-labelledby="prototype-testing-title">
       <div class="page-shell">
         <header class="prototype-testing__header">
           <h2 id="prototype-testing-title">06. Prototype &amp; Usability Testing</h2>
@@ -1248,7 +1248,7 @@
       </div>
     </section>
 
-    <section class="outcomes-reflection" aria-labelledby="outcomes-reflection-title">
+    <section class="outcomes-reflection" id="outcomes" aria-labelledby="outcomes-reflection-title">
       <div class="page-shell outcomes-reflection__inner">
         <header class="outcomes-reflection__header">
           <h2 id="outcomes-reflection-title">07. Outcomes &amp; Reflection</h2>
@@ -1290,6 +1290,44 @@
       <img src="" alt="">
     </dialog>
   </main>
+
+  <nav class="case-progress surface-card" data-case-progress aria-label="EcoDream case study navigation">
+    <div class="case-progress__track" aria-hidden="true">
+      <span class="case-progress__fill" data-case-progress-fill></span>
+    </div>
+    <ol class="case-progress__steps">
+      <li class="case-progress__step">
+        <a href="#overview" data-case-progress-link="overview" aria-current="step">
+          <span class="case-progress__marker" aria-hidden="true"></span>
+          <span class="case-progress__label">Overview</span>
+        </a>
+      </li>
+      <li class="case-progress__step">
+        <a href="#research" data-case-progress-link="research">
+          <span class="case-progress__marker" aria-hidden="true"></span>
+          <span class="case-progress__label">Research</span>
+        </a>
+      </li>
+      <li class="case-progress__step">
+        <a href="#design" data-case-progress-link="design">
+          <span class="case-progress__marker" aria-hidden="true"></span>
+          <span class="case-progress__label">Design</span>
+        </a>
+      </li>
+      <li class="case-progress__step">
+        <a href="#testing" data-case-progress-link="testing">
+          <span class="case-progress__marker" aria-hidden="true"></span>
+          <span class="case-progress__label">Testing</span>
+        </a>
+      </li>
+      <li class="case-progress__step">
+        <a href="#outcomes" data-case-progress-link="outcomes">
+          <span class="case-progress__marker" aria-hidden="true"></span>
+          <span class="case-progress__label">Outcomes</span>
+        </a>
+      </li>
+    </ol>
+  </nav>
 
   <footer class="site-footer">
     <div class="footer-top-edge" aria-hidden="true">
@@ -1358,5 +1396,6 @@
 
   <script src="../js/main.js" defer></script>
   <script src="../js/ecodream-prototype-arrow.js" defer></script>
+  <script src="../js/ecodream-progress.js" defer></script>
 </body>
 </html>

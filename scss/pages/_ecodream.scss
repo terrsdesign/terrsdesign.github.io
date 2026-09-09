@@ -3455,3 +3455,169 @@ html.motion-paused .case-disclosure-chevron {
 .ecodream-page .design-topic > p { margin-top: -8px; }
 .ecodream-page [data-case-accordion] .case-disclosure-trigger { min-height: 0; padding: 0 0 2px; }
 .ecodream-page [data-case-accordion] .case-disclosure-trigger h3 { line-height: 1; }
+
+/* Fixed case-study navigation */
+.ecodream-page {
+  --case-progress-height: 64px;
+}
+
+.case-progress {
+  --case-progress: 0;
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  z-index: 80;
+  width: min(880px, calc(100% - 32px));
+  min-height: 0;
+  margin-inline: auto;
+  padding: 12px 24px 8px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.18);
+}
+
+.case-progress__track {
+  position: absolute;
+  top: 20px;
+  right: calc(10% + 24px);
+  left: calc(10% + 24px);
+  height: 2px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--color-text-secondary) 28%, transparent);
+}
+
+.case-progress__fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--color-accent);
+  transform: scaleX(var(--case-progress));
+  transform-origin: left center;
+  transition: transform 120ms linear;
+}
+
+.case-progress__steps {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.case-progress__step a {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  align-items: center;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-small);
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.case-progress__marker {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--color-text-secondary);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  transition: border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.case-progress__step.is-complete .case-progress__marker {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+}
+
+.case-progress__step.is-complete a,
+.case-progress__step a[aria-current="step"] {
+  color: var(--color-accent-text);
+}
+
+.case-progress__step a[aria-current="step"] {
+  font-weight: 700;
+}
+
+.case-progress__step a[aria-current="step"] .case-progress__marker {
+  border-color: var(--color-accent);
+  background: var(--color-white);
+  box-shadow: inset 0 0 0 3px var(--color-accent);
+}
+
+.case-progress__step a:hover {
+  color: var(--color-action-active);
+}
+
+.case-progress__step a:hover .case-progress__marker {
+  border-color: var(--color-action-active);
+}
+
+.case-progress__step a:focus-visible {
+  border-radius: 8px;
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+.ecodream-page .motion-toggle,
+.ecodream-page .back-to-top {
+  bottom: calc(var(--case-progress-height) + 32px);
+}
+
+.ecodream-page .site-footer {
+  padding-bottom: calc(var(--case-progress-height) + 16px);
+}
+
+.ecodream-page #overview,
+.ecodream-page #research,
+.ecodream-page #design,
+.ecodream-page #testing,
+.ecodream-page #outcomes {
+  scroll-margin-top: 32px;
+}
+
+@media (max-width: 767px) {
+  .ecodream-page {
+    --case-progress-height: 64px;
+  }
+
+  .case-progress {
+    padding: 12px 8px 6px;
+  }
+
+  .case-progress__track {
+    top: 20px;
+    right: 10%;
+    left: 10%;
+  }
+
+  .case-progress__step a {
+    gap: 8px;
+    font-size: var(--font-size-caption);
+  }
+
+  .case-progress__marker {
+    width: 16px;
+    height: 16px;
+  }
+
+  .ecodream-page .motion-toggle,
+  .ecodream-page .back-to-top {
+    bottom: calc(var(--case-progress-height) + 32px);
+  }
+}
+
+@media (max-width: 374px) {
+  .case-progress__step a {
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case-progress__fill,
+  .case-progress__marker {
+    transition: none;
+  }
+}
