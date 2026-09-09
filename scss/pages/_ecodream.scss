@@ -3463,6 +3463,7 @@ html.motion-paused .case-disclosure-chevron {
 
 .case-progress {
   --case-progress: 0;
+  display: none;
   position: fixed;
   right: 16px;
   bottom: 16px;

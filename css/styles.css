@@ -10463,6 +10463,7 @@ html.motion-paused .not-found__zero img {
 
 .case-progress {
   --case-progress: 0;
+  display: none;
   position: fixed;
   right: 16px;
   bottom: 16px;
