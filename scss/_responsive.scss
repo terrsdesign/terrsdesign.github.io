@@ -560,6 +560,7 @@
   .projects-showcase {
     height: auto !important;
     display: block;
+    margin-top: 0;
     padding-top: 64px;
   }
 
@@ -605,7 +606,12 @@
   .projects-panel--ux-pair {
     display: grid;
     grid-template-columns: 1fr;
+    grid-auto-rows: auto;
     gap: 24px;
+  }
+
+  .projects-panel--ux-pair .ux-project-card--chocolate {
+    grid-column: 1;
   }
 
   .projects-panel--ux-pair[hidden] {
@@ -615,6 +621,7 @@
   .projects-panel--ux-pair .ux-project-card,
   .project-preview--ux,
   .project-preview--branding {
+    height: auto;
     grid-template-columns: minmax(220px, 42%) minmax(0, 1fr);
     grid-template-rows: auto;
     gap: 24px;

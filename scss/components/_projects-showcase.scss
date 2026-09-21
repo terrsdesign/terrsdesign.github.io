@@ -42,7 +42,8 @@
   height: 656px;
   display: grid;
   grid-template-columns: 306px minmax(0, 1fr);
-  align-items: center;
+  align-items: start;
+  padding-top: 96px;
   transition: height 320ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -124,9 +125,10 @@
 }
 
 .projects-panel--ux-pair {
-  height: 608px;
+  height: auto;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 608px;
   gap: 20px;
   overflow: visible;
 }
@@ -161,6 +163,10 @@
   padding: 24px;
 }
 
+.projects-panel--ux-pair .ux-project-card--chocolate {
+  grid-column: 2;
+}
+
 .projects-panel--ux-pair .project-preview__media {
   width: 100%;
   height: 248px;
@@ -170,6 +176,14 @@
 
 .projects-panel--ux-pair .project-preview__media img {
   object-fit: cover;
+}
+
+.projects-panel--ux-pair .project-preview__media--rossotono {
+  background: var(--color-white);
+}
+
+.projects-panel--ux-pair .project-preview__media--rossotono img {
+  object-position: center;
 }
 
 .projects-panel--ux-pair .project-preview__media--chocolate {

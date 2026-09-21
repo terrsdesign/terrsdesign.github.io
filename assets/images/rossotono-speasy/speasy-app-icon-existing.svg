@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title">
+  <title id="title">Existing green Speasy app icon</title>
+  <rect x="16" y="10" width="289" height="290" rx="70" fill="#fff"/>
+  <path d="M108 134c9-27 30-44 57-44 34 0 57 22 57 54 0 33-25 57-59 58-24 0-43-13-76-30l-22 49" fill="none" stroke="#3f9f35" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="257" cy="163" r="15" fill="#3f9f35"/>
+  <circle cx="229" cy="219" r="15" fill="#3f9f35"/>
+</svg>
