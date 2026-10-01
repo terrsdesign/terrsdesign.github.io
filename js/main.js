@@ -107,7 +107,11 @@
     const syncProjectsHeight = (panel) => {
       if (!projectsShowcase || !projectsPanelsContainer || !panel) return;
 
-      const panelHeight = Math.max(panel.offsetHeight, panel.scrollHeight);
+      const usesDesktopProjectScroll = panel.classList.contains("projects-panel--ux-pair")
+        && window.matchMedia("(min-width: 1025px)").matches;
+      const panelHeight = usesDesktopProjectScroll
+        ? panel.offsetHeight
+        : Math.max(panel.offsetHeight, panel.scrollHeight);
       const showcaseBreathingRoom = 131;
 
       projectsPanelsContainer.style.height = `${panelHeight}px`;

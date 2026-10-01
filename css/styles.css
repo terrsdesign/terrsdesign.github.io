@@ -889,6 +889,40 @@ html.motion-paused .home-drawn-arrow .home-arrow-guide {
   overflow: visible;
 }
 
+@media (min-width: 1025px) {
+  .projects-panel--ux-pair {
+    height: 608px;
+    padding-right: 12px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    scroll-snap-type: y proximity;
+    scrollbar-color: var(--color-accent) transparent;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+  }
+  .projects-panel--ux-pair:focus-visible {
+    border-radius: var(--radius-base);
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+  }
+  .projects-panel--ux-pair::-webkit-scrollbar {
+    width: 10px;
+  }
+  .projects-panel--ux-pair::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .projects-panel--ux-pair::-webkit-scrollbar-thumb {
+    border: 2px solid transparent;
+    border-radius: var(--radius-base);
+    background: var(--color-accent);
+    background-clip: padding-box;
+  }
+  .projects-panel--ux-pair .ux-project-card {
+    scroll-snap-align: start;
+  }
+}
+
 .projects-panel--ux-pair[hidden] {
   display: none;
 }
@@ -1251,7 +1285,7 @@ html.motion-paused .home-drawn-arrow .home-arrow-guide {
 
 .how-work__callout {
   position: absolute;
-  top: -180px;
+  top: -160px;
   right: 0;
   z-index: 4;
   width: 382px;
