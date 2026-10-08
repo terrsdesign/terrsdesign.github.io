@@ -60,12 +60,14 @@
     width: 100%;
   }
 
-  .projects-panel--ux-pair .ux-project-card {
+  .projects-panel--ux-pair .ux-project-card,
+  .projects-panel--branding-pair .branding-project-card {
     grid-template-rows: 208px minmax(0, 1fr);
     padding: 16px;
   }
 
-  .projects-panel--ux-pair .project-preview__media {
+  .projects-panel--ux-pair .project-preview__media,
+  .projects-panel--branding-pair .project-preview__media {
     height: 208px;
   }
 
@@ -603,7 +605,8 @@
     height: auto !important;
   }
 
-  .projects-panel--ux-pair {
+  .projects-panel--ux-pair,
+  .projects-panel--branding-pair {
     display: grid;
     grid-template-columns: 1fr;
     grid-auto-rows: auto;
@@ -614,11 +617,13 @@
     grid-column: 1;
   }
 
-  .projects-panel--ux-pair[hidden] {
+  .projects-panel--ux-pair[hidden],
+  .projects-panel--branding-pair[hidden] {
     display: none;
   }
 
   .projects-panel--ux-pair .ux-project-card,
+  .projects-panel--branding-pair .branding-project-card,
   .project-preview--ux,
   .project-preview--branding {
     height: auto;
@@ -629,6 +634,7 @@
   }
 
   .projects-panel--ux-pair .project-preview__media,
+  .projects-panel--branding-pair .project-preview__media,
   .project-preview__media--portrait,
   .project-preview__media--landscape {
     width: 100%;
@@ -636,6 +642,7 @@
   }
 
   .projects-panel--ux-pair .project-preview__content,
+  .projects-panel--branding-pair .project-preview__content,
   .project-preview__content {
     overflow: visible;
     padding: 0;
@@ -1490,6 +1497,7 @@
   }
 
   .projects-panel--ux-pair .ux-project-card,
+  .projects-panel--branding-pair .branding-project-card,
   .project-preview--ux,
   .project-preview--branding {
     grid-template-columns: 1fr;
@@ -1498,12 +1506,14 @@
   }
 
   .projects-panel--ux-pair .project-preview__media,
+  .projects-panel--branding-pair .project-preview__media,
   .project-preview__media--portrait,
   .project-preview__media--landscape {
     height: 224px;
   }
 
   .projects-panel--ux-pair .project-preview__content h3,
+  .projects-panel--branding-pair .project-preview__content h3,
   .project-preview__content h3 {
     margin-bottom: 16px;
     font-size: var(--font-size-h3);

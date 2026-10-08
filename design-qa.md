@@ -1,38 +1,39 @@
-# Design QA — Rossotono x Speasy homepage card
+# Design QA — Branding the Emotions overview
 
-## Evidence
+- Source visual truth: `C:\Users\terrs\.codex\generated_images\01a10d55-6a23-7421-a4b2-236eabfd330c\exec-702e3143-740a-4161-ba6a-7b815b263321.png`
+- Implementation: `http://127.0.0.1:4173/Progetti/branding-the-emotions.html`
+- Implementation screenshot: inline Codex Browser capture in this task, rendered from the implementation URL
+- Desktop viewport: 1440 × 1024 CSS px, device density 1
+- Mobile viewport: 390 × 844 CSS px, device density 1
+- State: initial page state after the origin-arrow draw animation completes
+- Source pixels: 1440 × 1024
+- Implementation capture pixels: 1440 × 1024 desktop; 390 × 844 mobile
+- Density normalization: none required for the desktop comparison
 
-- Source visual truth: `C:\Users\terrs\Downloads\Senza titolo.webp`
-- Sidebar logo source: `C:\Users\terrs\AppData\Local\Temp\codex-clipboard-e5d84b58-18dc-4f91-9001-ad7b7f1d18b3.png`
-- Implementation: `http://127.0.0.1:5500/index.html#work`
-- Implementation evidence: Codex in-app browser captures at the default desktop viewport and at `390 × 844 px`
-- State tested: homepage, `UX/UI` project category selected
-- Target checked: Rossotono x Speasy card, project ordering, responsive stacking, and case-study link
+## Full-view comparison evidence
 
-## Comparison
+The implementation preserves the selected option's two-column editorial composition, complete floating notebook, top-aligned overview copy, pale-blue portfolio surface, shared navigation and divider. User-directed changes are intentional: the existing project copy is preserved, the project name uses the H3 scale, the portfolio's existing animated arrow and accent lettering replace the generated annotation, and the emotion icons are 40% smaller than the original 150px Figma size.
 
-- **Content fidelity:** the supplied Rossotono x Speasy mockup is used directly, without cropping or recreating its internal UI.
-- **Layout:** Rossotono x Speasy is the first card, EcoDream is second, and Chocolate for Family starts the following row as requested.
-- **Typography and colour:** the new card reuses the existing homepage card hierarchy, typography variables, accent colour, body colour, and link treatment.
-- **Responsive behaviour:** the two-column desktop grid becomes a single-column mobile stack without clipped text or horizontal overflow.
-- **Interaction:** `View case study` opens `Progetti/rossotono-x-speasy.html` successfully.
+## Focused region comparison evidence
 
-## Sidebar logo verification
+- Hero: notebook remains fully visible, slightly rotated, with a restrained paper shadow and no distortion.
+- Origin callout: the existing contact arrow SVG is converted to the shared stroke-mask animation and points to the notebook without crossing the copy.
+- Typography: `Branding the Emotions` renders at 32px/35.2px; the remainder of the opening statement stays at 22px and all original wording is unchanged.
+- Selector: all five items render at 90 × 90px, exactly 60% of the original 150px size.
+- Responsive: the mobile capture has no horizontal overflow; the notebook, callout, title and copy remain readable.
 
-- Implementation route: `http://127.0.0.1:5500/Progetti/rossotono-x-speasy.html`
-- State: initial page load at the default desktop browser viewport.
-- The supplied transparent logo is used directly below the project title and case-study label; it is not recreated or altered.
-- The browser reports the source and rendered asset at `180 × 65 px`, preserving its original ratio and sharpness.
-- The asset loaded successfully with descriptive alternative text and no browser warnings or errors.
-- A focused comparison was sufficient because the implementation uses the exact supplied raster asset at its natural dimensions.
+## Findings
 
-## Findings by severity
+No actionable P0, P1 or P2 mismatches remain.
 
-- P0: none
-- P1: none
-- P2: none
-- P3: the empty second column beside Chocolate for Family is intentionally retained until a fourth project is added, per the product decision.
+## Comparison history
 
-## Result
+1. The first implementation pass reused the correct arrow but inherited its large contact-page transform, causing it to cross the notebook. Fixed by retaining the same animated SVG and reducing/reorienting only its page-specific presentation.
+2. The first mobile pass reduced the title to the H4 scale. Fixed by removing that override so the requested H3 scale remains 32px on desktop and mobile.
+3. Post-fix evidence confirms a completed draw animation, 90px selector icons, loaded imagery, zero console warnings/errors and zero horizontal overflow at both tested viewports.
 
-Final result: passed
+## Follow-up polish
+
+No blocking polish items. The fixed animation control can overlap content while scrolling on narrow screens; this is existing site-wide behavior rather than a regression introduced by this page.
+
+final result: passed
