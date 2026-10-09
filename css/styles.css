@@ -10499,24 +10499,24 @@ html.motion-paused .anxiety-palette__swatches img {
 
 .anxiety-identity__construction {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 200px 300px;
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 320px) 300px;
   gap: 40px;
   align-items: stretch;
 }
 
-.anxiety-identity__sketches,
-.anxiety-identity__pattern {
+.anxiety-identity__sketches {
+  display: flex;
+  min-width: 0;
   margin: 0;
-  overflow: hidden;
+  align-items: center;
 }
 
-.anxiety-identity__sketches img,
-.anxiety-identity__pattern img {
+.anxiety-identity__sketches img {
   display: block;
   width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .anxiety-identity__sketches img {
@@ -10524,9 +10524,24 @@ html.motion-paused .anxiety-palette__swatches img {
      object-position: center;
 }
 
-.anxiety-identity__pattern img {
-  -o-object-position: center;
-     object-position: center;
+.anxiety-identity__mockups {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+
+.anxiety-identity__mockups figure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-base);
+}
+
+.anxiety-identity__mockups img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .anxiety-identity__equation {
@@ -10538,6 +10553,7 @@ html.motion-paused .anxiety-palette__swatches img {
 
 .anxiety-identity__equation > img {
   display: block;
+  max-width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
 }
@@ -10806,6 +10822,56 @@ html.motion-paused .anxiety-palette__swatches img {
   font-weight: 700;
 }
 
+@media (min-width: 1024px) {
+  .anxiety-identity {
+    container-type: inline-size;
+  }
+
+  .anxiety-identity__construction {
+    /* Fit the full notebook (3:4) and the three full mockups to one height.
+       Mockup height = width * (2 * 1024/1536 + 1490/1055) + two 24px gaps. */
+    --identity-height: calc((100cqi - 62.52px) / 1.414212);
+    grid-template-columns:
+      calc(var(--identity-height) * 0.75)
+      calc((var(--identity-height) - 48px) / 2.745656)
+      minmax(0, 1fr);
+    height: var(--identity-height);
+  }
+
+  .anxiety-identity__equation {
+    min-height: 0;
+    justify-content: space-between;
+  }
+
+  .anxiety-identity__equation > img:nth-of-type(1) {
+    width: 100%;
+    height: calc(var(--identity-height) * 0.12);
+  }
+
+  .anxiety-identity__equation > img:nth-of-type(2) {
+    width: 70%;
+    height: calc(var(--identity-height) * 0.165);
+  }
+
+  .anxiety-identity__equation > img:nth-of-type(3) {
+    width: 75%;
+    height: calc(var(--identity-height) * 0.154);
+  }
+
+  .anxiety-identity__equation > span {
+    height: calc(var(--identity-height) * 0.075);
+  }
+
+  .anxiety-identity__equation .anxiety-identity__arrow {
+    height: calc(var(--identity-height) * 0.08);
+  }
+
+  .anxiety-identity__equation .anxiety-identity__logo {
+    width: 100%;
+    height: calc(var(--identity-height) * 0.26);
+  }
+}
+
 @media (max-width: 1023px) {
   .branding-emotions-page {
     padding-top: 120px;
@@ -10865,7 +10931,7 @@ html.motion-paused .anxiety-palette__swatches img {
     grid-column: 2;
   }
   .anxiety-identity__construction {
-    grid-template-columns: minmax(0, 1fr) 180px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .anxiety-experience {
     grid-template-columns: minmax(0, 1fr) 300px minmax(0, 1fr);
@@ -11269,22 +11335,6 @@ html.motion-paused .anxiety-palette__swatches img {
   }
   .anxiety-identity__sketches {
     aspect-ratio: 1086/1448;
-  }
-  .anxiety-identity__pattern {
-    height: 100px;
-    border-radius: var(--radius-base);
-    background: #d0142a;
-  }
-  .anxiety-identity__pattern img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    opacity: 1;
-    visibility: visible;
-    -o-object-fit: cover;
-       object-fit: cover;
-    -o-object-position: center 48%;
-       object-position: center 48%;
   }
   .anxiety-identity__equation {
     display: flex;
