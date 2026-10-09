@@ -10208,7 +10208,7 @@ html.motion-paused .anxiety-keywords__tag {
 
 .anxiety-signal__caption h4 {
   margin: 0 0 6px;
-  color: var(--color-accent);
+  color: #d0142a;
   font-family: var(--font-family-body);
   font-size: var(--font-size-small);
   font-weight: 700;
@@ -10380,7 +10380,7 @@ html.motion-paused .anxiety-keywords__tag {
   font-weight: 700;
 }
 
-.anxiety-palette__primary span {
+.anxiety-palette__primary > span[aria-hidden] {
   display: none;
 }
 
@@ -10478,6 +10478,7 @@ html.motion-paused .anxiety-palette__swatches img {
   }
 }
 .anxiety-palette__swatches span {
+  color: var(--color-white);
   font-size: clamp(0.875rem, 1.65vw, 1.5rem);
   font-weight: 700;
   line-height: 1;
@@ -11196,7 +11197,7 @@ html.motion-paused .anxiety-palette__swatches img {
   .anxiety-palette__primary svg {
     display: none;
   }
-  .anxiety-palette__primary span {
+  .anxiety-palette__primary > span[aria-hidden] {
     display: inline;
   }
   .anxiety-palette__swatches {
